@@ -9,11 +9,11 @@ function ShowAddress() {
 			appid: appid,
 			query: $('#query').val(),
 			output: 'json',
-		},
-		jsonpCallback: 'ShowResult',
-		success: function(json){
-			Message("success");
 		}
+	}).done(function(data){
+		ShowResult(data);
+	}).fail(function(data){
+		Message("失敗しました");
 	});
 }
 
