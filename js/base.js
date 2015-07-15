@@ -7,27 +7,14 @@ function ShowAddress() {
 		dataType: 'jsonp',
 		data: {
 			appid: appid,
-			query: encodeURI($('#query').val),
+			query: $('#query').val(),
 			output: 'json',
-//			callback: 'ShowResult'
 		},
-//			jsonpCallback: 'CallJSONP',
+		jsonpCallback: 'ShowResult',
 		success: function(json){
-			var len = json.length;
-			Message(json);
-//			for(var i=0; i < len; i++){
-//				$("#b").append(json[i].version + ' ' + json[i].codename + '<br>');
-//			}
+			Message("success");
 		}
 	});
-}
-
-function CallJSONP(url) {
-	Message("JSONP response: " + url);
-	var target = document.createElement('script');
-	target.charset = 'utf-8';
-	target.src = url;
-	document.body.appendChild(target);
 }
 
 function ShowResult(result) {
